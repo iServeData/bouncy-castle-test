@@ -1,19 +1,5 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        // This is the "Engine" that builds the APK
-        classpath 'com.android.tools.build:gradle:8.2.2'
-    }
-}
-
-apply plugin: 'com.android.application'
-
-repositories {
-    google()
-    mavenCentral()
+plugins {
+    id 'com.android.application' version '8.2.2'
 }
 
 android {
@@ -27,18 +13,10 @@ android {
         versionCode 1
         versionName "1.0"
     }
-    
-    // This allows the build to proceed without a signing key
-    signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-        }
-    }
 
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig signingConfigs.debug
         }
     }
 }
